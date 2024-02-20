@@ -25,11 +25,12 @@ def main():
         if (largest - smallest) == 0:
             calculatedIntensity = 0
         else:
-            calculatedIntensity = int(((intensity - smallest) / (largest - smallest)) * 23)
-        print(calculatedIntensity)
-        if calculatedIntensity == 23:
-            calculatedIntensity = 22
+            calculatedIntensity = int(((intensity - smallest) / (largest - smallest)) * 22)
         screen.blit(pygame.image.load(images[calculatedIntensity]), (0, 0))
+        screen.blit(pygame.font.Font(None, 36).render(str(intensity), True, (255, 255, 255)), (0, 0))
+        screen.blit(pygame.font.Font(None, 36).render(str(calculatedIntensity), True, (255, 255, 255)), (0, 36))
+        screen.blit(pygame.font.Font(None, 36).render(str(smallest), True, (255, 255, 255)), (0, 72))
+        screen.blit(pygame.font.Font(None, 36).render(str(largest), True, (255, 255, 255)), (0, 108))
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
